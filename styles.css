@@ -1,0 +1,1309 @@
+/* ===================================================================
+   PORTFOLIO LISIA ZAHWA ALIFA — BENTO GRID EDITION
+   Aesthetic: Frosted Glass Bento + Modern Interactive Tech Atmosphere
+   =================================================================== */
+
+:root {
+  --bg-primary: #ededeb;
+  --text-main: #111111;
+  --text-secondary: #4a4a4a;
+  --text-muted: #717171;
+
+  --card-bg: rgba(255, 255, 255, 0.52);
+  --card-bg-hover: rgba(255, 255, 255, 0.72);
+
+  --card-border: rgba(255, 255, 255, 0.85);
+  --card-border-hover: rgba(255, 255, 255, 1);
+
+  --badge-bg: #222222;
+  --badge-text: #f5f5f5;
+
+  --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --sans-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* RESET & BOX SIZING */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--sans-font);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* BACKGROUND ATMOSPHERE */
+.bg-atmosphere-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #f6f6f4 0%, #ebebea 60%, #e2e2df 100%);
+}
+
+.bg-interactive-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+.bg-fluid-waves {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  stroke: rgba(0,0,0,0.15);
+}
+
+.fluid-waves-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-ambient-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.45) 0%, rgba(240, 240, 238, 0.25) 70%, rgba(230, 230, 228, 0.6) 100%);
+  pointer-events: none;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* LAYOUT CONTAINER */
+.site-container {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* HEADER & NAV */
+.site-header {
+  margin-bottom: 3rem;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-xl);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.logo-mark {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-main);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-social {
+  color: var(--text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HERO SECTION */
+.hero-section {
+  padding: 2rem 0 4rem;
+}
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.05);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.hero-title span {
+  color: var(--text-muted);
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-tags span {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-family: var(--mono-font);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.button-primary {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+.button-secondary {
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.meta-label {
+  display: block;
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.meta-value {
+  font-weight: 600;
+}
+
+/* BENTO GRID */
+.bento-section {
+  margin-bottom: 5rem;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.bento-card {
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+}
+
+.bento-card:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  transform: translateY(-2px);
+}
+
+.card-about { grid-column: span 2; grid-row: span 2; }
+.card-experience { grid-column: span 2; }
+.card-projects { grid-column: span 2; }
+.card-skills { grid-column: span 2; }
+
+.card-number {
+  font-family: var(--mono-font);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.card-label {
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.bento-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.card-action {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.skills-list, .project-mini-list, .certificate-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skills-list span, .project-mini-list span, .certificate-preview span {
+  background: rgba(0,0,0,0.04);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: var(--mono-font);
+}
+
+/* CONTENT SECTIONS */
+.content-section {
+  margin-bottom: 5rem;
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+}
+
+.section-eyebrow {
+  font-family: var(--mono-font);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.section-heading h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* TIMELINE & CARDS */
+.experience-timeline, .projects-grid, .certificates-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.projects-grid, .certificates-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.experience-item, .project-card, .certificate-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.project-card h3, .certificate-card h3 {
+  margin: 0.5rem 0;
+}
+
+.project-tech {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.project-tech span {
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.project-link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  backdrop-filter: blur(16px);
+  margin-bottom: 3rem;
+}
+
+.contact-links {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+}
+
+/* RESPONSIVE DESIGNS */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-about, .card-experience, .card-projects, .card-skills {
+    grid-column: span 1;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+/* ===================================================================
+   TRADING CARD (YU-GI-OH STYLE) CARD 01 BENTO
+   =================================================================== */
+
+.card-yugioh {
+  padding: 1rem !important;
+  background: linear-gradient(135deg, #c39a4b 0%, #eacb75 50%, #9e7528 100%) !important;
+  border: 2px solid #6b4e13 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-xl);
+  color: #111;
+  overflow: hidden;
+}
+
+.tcg-frame {
+  background: #d8b868;
+  border: 3px double #5c4310;
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.tcg-header {
+  background: linear-gradient(180deg, #f5e3aa 0%, #cca347 100%);
+  border: 1.5px solid #5c4310;
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tcg-title {
+  font-family: var(--sans-font);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #1a1405;
+  margin: 0;
+}
+
+.tcg-attribute {
+  font-family: var(--mono-font);
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: #111;
+  color: #f5e3aa;
+  padding: 0.1rem 0.35rem;
+  border-radius: 50%;
+  border: 1px solid #cca347;
+}
+
+.tcg-stars {
+  text-align: right;
+  color: #e63946;
+  text-shadow: 0 0 2px #000;
+  font-size: 0.75rem;
+  margin-top: -0.25rem;
+  letter-spacing: 2px;
+}
+
+.tcg-image-box {
+  border: 2px solid #5c4310;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+  background: #000;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.tcg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tcg-text-box {
+  background: #fdf8e6;
+  border: 1.5px solid #5c4310;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tcg-type {
+  font-weight: 700;
+  font-size: 0.7rem;
+  border-bottom: 1px solid #332205;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
+  color: #2b1c03;
+}
+
+.tcg-description {
+  font-size: 0.7rem;
+  color: #222;
+  margin-bottom: 0.4rem;
+}
+
+.tcg-stats {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  font-family: var(--mono-font);
+  font-weight: 700;
+  font-size: 0.7rem;
+  border-top: 1px solid #332205;
+  padding-top: 0.2rem;
+  color: #111;
+}
+
+/* ===================================================================
+   ANIMASI & EFEK INTERAKTIF
+   =================================================================== */
+
+/* 1. Animasi Garis Latar Belakang Bergerak Soft */
+.bg-fluid-waves svg {
+  animation: waveFloat 12s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes waveFloat {
+  0% {
+    transform: translateY(0px) scaleY(1);
+  }
+  50% {
+    transform: translateY(-15px) scaleY(1.08) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(10px) scaleY(0.95) rotate(-0.5deg);
+  }
+}
+
+/* 2. Animasi Pulsasi Titik Hijau Status */
+.status-dot {
+  position: relative;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-color: rgba(34, 197, 94, 0.6);
+  animation: statusPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: -1;
+}
+
+@keyframes statusPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* 3. Animasi Hover Tombol Utama (Glow & Zoom Icon) */
+.button-primary {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.button-primary:hover svg {
+  transform: translate(2px, -2px);
+  transition: transform 0.25s ease;
+}
+
+.button-secondary:hover {
+  transform: translateY(-3px);
+  background: var(--card-bg-hover);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 4. Efek Hologram/Glint Kilau pada Kartu Yu-Gi-Oh! (Kartu 01) */
+.card-yugioh {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+}
+
+.card-yugioh::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 55%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+}
+
+.card-yugioh:hover {
+  transform: translateY(-6px) rotate(1deg) !important;
+  box-shadow: 0 15px 35px rgba(107, 78, 19, 0.4) !important;
+}
+
+.card-yugioh:hover::before {
+  opacity: 1;
+  transform: rotate(30deg) translate(20%, 20%);
+}
+
+/* 5. Smooth Entry Animation Saat Halaman Diisi */
+.hero-copy, .bento-card {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.bento-card:nth-child(1) { animation-delay: 0.1s; }
+.bento-card:nth-child(2) { animation-delay: 0.2s; }
+.bento-card:nth-child(3) { animation-delay: 0.3s; }
+.bento-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================================================
+   ANIMASI TAMBAHAN (SUPER INTERAKTIF & MODERN)
+   =================================================================== */
+
+/* 1. Animasi Kilau Metalik pada Nama Utama saat Hover */
+.hero-title {
+  background: linear-gradient(120deg, #111111 30%, #717171 50%, #111111 70%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 0.6s ease;
+}
+
+.hero-title:hover {
+  background-position: right center;
+}
+
+/* 2. Efek Garis Bawah Bergerak pada Navigasi Header */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--text-main);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* 3. Animasi Hover Membal & Interaktif untuk Semua Kartu Bento */
+.bento-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease,
+              background-color 0.35s ease !important;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* 4. Animasi Memutar / Membal pada Ikon Kartu Bento saat Disorot */
+.card-icon {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bento-card:hover .card-icon {
+  transform: scale(1.18) rotate(-6deg);
+}
+
+/* 5. Animasi Tombol Panah Aksi (↗) Meluncur ke Atas Kanan */
+.card-action i,
+.project-link i {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-action:hover i,
+.bento-card:hover .card-action i,
+.project-link:hover i {
+  transform: translate(3px, -3px) scale(1.1);
+}
+
+/* 6. Animasi Badge Skills & Tags Terangkat Membal saat Hover */
+.skills-list span, 
+.hero-tags span, 
+.project-mini-list span, 
+.certificate-preview span {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.2s ease, 
+              color 0.2s ease;
+  cursor: default;
+}
+
+.skills-list span:hover, 
+.hero-tags span:hover, 
+.project-mini-list span:hover, 
+.certificate-preview span:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+/* 7. Efek Breathing/Napas Halus pada Canvas Latar Belakang */
+.bg-atmosphere-container {
+  animation: bgBreathing 16s ease-in-out infinite alternate;
+}
+
+@keyframes bgBreathing {
+  0% {
+    filter: hue-rotate(0deg) contrast(1);
+  }
+  50% {
+    filter: hue-rotate(5deg) contrast(1.03);
+  }
+  100% {
+    filter: hue-rotate(-5deg) contrast(0.98);
+  }
+}
+
+/* ===================================================================
+   PERBAIKAN TAMPILAN CARD EXPERIENCE TIMELINE
+   =================================================================== */
+
+.experience-item {
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.experience-item:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.experience-year {
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.experience-header h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.experience-header span {
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.experience-header i, 
+.experience-header svg {
+  width: 22px;
+  height: 22px;
+  color: var(--text-muted);
+}
+
+.experience-main p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.experience-main ul {
+  margin-left: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.experience-main li {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* FIX TAGS: Menjadikan Tag Teks Kotak Badge Rapi */
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.experience-tags span {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text-main);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.experience-tags span:hover {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  transform: translateY(-2px);
+}
+
+/* ===================================================================
+   PERBAIKAN TAMPILAN PROJECTS GRID
+   =================================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch; /* Memastikan semua kartu dalam 1 baris sama tingginya */
+}
+
+.project-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column; /* Menyusun konten secara vertikal */
+  justify-content: flex-start;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+/* Efek Hover Kartu Proyek */
+.project-card:hover {
+  transform: translateY(-5px);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Kategori / Subtitle */
+.project-category {
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+/* Judul Proyek */
+.project-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+/* Deskripsi Proyek */
+.project-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+/* Tag Teknologi */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tech span {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+}
+
+/* Tombol View on GitHub Selalu Sejajar di Bawah */
+.project-link {
+  margin-top: auto; /* Memaksa tombol selalu berada di dasar kartu */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  padding-top: 0.75rem;
+}
+
+.project-link i, 
+.project-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.project-card:hover .project-link i,
+.project-card:hover .project-link svg {
+  transform: translate(3px, -3px);
+}
+/* ===================================================================
+   PERBAIKAN TAMPILAN CERTIFICATES GRID
+   =================================================================== */
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch; /* Memaksa semua kartu dalam satu baris memiliki tinggi yang sama */
+}
+
+.certificate-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+/* Efek Hover untuk Kartu Sertifikat */
+.certificate-card:hover {
+  transform: translateY(-5px);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Ukuran & Tata Letak Ikon */
+.certificate-icon {
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.certificate-icon i,
+.certificate-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Kontainer Teks */
+.certificate-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Penerbit / Organization Name */
+.certificate-content span {
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Judul Sertifikat */
+.certificate-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Tahun / Date badge di bagian bawah */
+.certificate-content p {
+  margin-top: auto; /* Memaksa p/tahun berada di paling bawah kartu */
+  font-family: var(--mono-font);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  width: fit-content;
+}
+
+/* ===================================================================
+   STYLING KARTU SERTIFIKAT INTERAKTIF (CAN BE VISITED)
+   =================================================================== */
+
+/* Menghilangkan garis bawah default tag a */
+a.certificate-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Header bagian atas kartu untuk Ikon & Panah */
+.certificate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.certificate-header .certificate-icon {
+  margin-bottom: 0;
+}
+
+/* Ikon panah ke kanan atas (↗) */
+.certificate-arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* Efek saat kartu diarahkan kursor (Hover Effect) */
+.certificate-card:hover .certificate-arrow {
+  color: var(--text-main);
+  transform: translate(3px, -3px) scale(1.1);
+}
+
+.certificate-card:hover h3 {
+  color: var(--text-main);
+}
+/* ===================================================================
+   ANIMASI INTERAKTIF KARTU SERTIFIKAT
+   =================================================================== */
+
+/* 1. Efek Dasar Kartu Sertifikat */
+.certificate-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease,
+              background-color 0.35s ease !important;
+}
+
+/* 2. Animasi Terangkat & Glow saat Hover */
+.certificate-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 255, 255, 1);
+  background-color: var(--card-bg-hover);
+}
+
+/* 3. Efek Kilau / Shimmer Line Melintas saat Kursor Diarahkan */
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+
+.certificate-card:hover::before {
+  left: 140%;
+}
+
+/* 4. Animasi Membal pada Ikon Sertifikat */
+.certificate-icon i,
+.certificate-icon svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
+}
+
+.certificate-card:hover .certificate-icon i,
+.certificate-card:hover .certificate-icon svg {
+  transform: scale(1.18) rotate(-8deg);
+  color: var(--text-main);
+}
+
+/* 5. Animasi Panah Meluncur ke Atas Kanan (↗) */
+.certificate-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.certificate-card:hover .certificate-arrow {
+  transform: translate(4px, -4px) scale(1.15);
+  color: var(--text-main);
+}
+
+/* 6. Animasi Badge Tahun Pop-up */
+.certificate-content p {
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.certificate-card:hover .certificate-content p {
+  transform: translateY(-2px);
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+/* Styling Judul Utama ala Driezie Studio */
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+/* Styling Khusus Kata Miring (Serif Italic) */
+.hero-title .title-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  padding-right: 0.15em; /* Memberi sedikit ruang agar tidak menempel */
+}
+
+/* Animasi Gelombang pada Sub-Judul */
+.hero-eyebrow span {
+  display: inline-block;
+  animation: waveLetter 1.2s ease-in-out infinite alternate;
+  animation-delay: calc(0.05s * var(--i));
+}
+
+@keyframes waveLetter {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); color: var(--text-main); }
+}
+
+/* Gelombang Riakan Klik */
+.click-ripple {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: rgba(17, 17, 17, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  animation: rippleEffect 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  z-index: 9999;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}
